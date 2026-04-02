@@ -4,18 +4,20 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
-function Counter() {
+function CounterApp() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <button 
+      <h1>0</h1>
+      <button onClick={ () => setCount( count + 1 ) }>+</button>
+      {/* <button
         className='counter'
         onClick={() => setCount(count + 1)}>
-          Count is {count}
-      </button>
+        Count is {count}
+      </button> */}
     </>
   )
 }
 
-export default Counter
+export default CounterApp
