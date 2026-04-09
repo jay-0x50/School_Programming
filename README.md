@@ -3,5 +3,16 @@
 vanilla HTML, JavaScript
 ## React 시작
 ```shell
-npm create vite@llatest .
+$ npm create vite@llatest .
 ```
+
+```shell
+$ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+$ npm run dev
+```
+
+### CounterApp
+- `userState( 초기값 )`
+- `onClick = { () => set함수( 바꿀값 ) }`
+- `onClick = { () => set함수( ( 이전state ) => 이전state + 1 ) }`
+- `onClick = { 함수이름 }`
