@@ -1,4 +1,7 @@
 import './todolist.css';
+import TodoItemEmpty from './components/TodoItemEmpty.jsx';
+import Button from './components/Button.jsx';
+import Checkbox from './components/Checkbox.jsx';
 
 function TodoListApp() {
     return (
@@ -7,22 +10,25 @@ function TodoListApp() {
 
             <form className = 'todo__form'>
                 <input type="text" className='todo__input' placeholder='할 일을 입력하세요.'/>
-                <button type="submit" className='todo__button todo_button--add'>Add</button>
+                <Button type="submit" className='todo__button todo_button--add'>Add</Button>
             </form>
 
             <ul className='todo__list'>
-                <li className='todo__item todo__item--empty'>
-                    <p>할 일 없음.</p>
-                </li>
+                <TodoItemEmpty />
                 <li className='todo__item todo__item--complete'>
-                    <label className='todo__label'><input type="checkbox" className='todo__check'/>지각 하기</label>
-                    <button className='todo__button todo__button--edit'>🔮</button>
-                    <button className='todo__button todo__button--delete'>✖️</button>
+                    <Checkbox id="1" >지각 하기</Checkbox>
+                    <Button className='todo__button todo__button--edit'>🔮</Button>
+                    <Button className='todo__button todo__button--delete'>✖️</Button>
                 </li>
                 <li className='todo__item'>
-                    <label className='todo__label'><input type="checkbox" className='todo__check'/>롤체 in down</label>
-                    <button className='todo__button todo__button--edit'>🔮</button>
-                    <button className='todo__button todo__button--delete'>✖️</button>
+                    <Checkbox id="2" >할 일 2</Checkbox>
+                    <Button className='todo__button todo__button--edit'>🔮</Button>
+                    <Button className='todo__button todo__button--delete'>✖️</Button>
+                </li>
+                <li className='todo__item'>
+                    <Checkbox />
+                    <Button className='todo__button todo__button--edit'>🔮</Button>
+                    <Button className='todo__button todo__button--delete'>✖️</Button>
                 </li>
             </ul> 
         </div> // div
