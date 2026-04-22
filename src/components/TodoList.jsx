@@ -1,10 +1,10 @@
 import TodoItemEmpty from './TodoItemEmpty.jsx';
 import TodoItem from './TodoItem.jsx';
 
-export default function TodoList() {
+export default function TodoList( { todos } ) {
     return (
         <ul className='todo__list'>
-            <TodoItemEmpty />
+            { todos.length === 0 && <TodoItemEmpty />}
             <TodoItem />
         </ul>
     )
