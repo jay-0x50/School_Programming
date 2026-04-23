@@ -9,7 +9,7 @@ export default function TodoList({ todos, todoggleTodo }) {
             {todos.length === 0 && <TodoItemEmpty />}
             {/* 아무것도 없지 않을 때 */}
             {todos.length > 0 && todos.map((todo) =>
-                <TodoItem key={todo.id} todo={todo} toggleTodo={todoggleTodo} />
+                <TodoItem key={todo.id} todo={todo} {...rest} />
             )}
         </ul>
     )

@@ -34,6 +34,9 @@ function TodoListApp() {
             )
         );
     }
+    function deleteTodo(id) {
+        setTodos((todos) => todos.filter((todo) => todo.id !== id));
+    }
     // function addTodo(text) { setTodos((todos) => [...todos, new Todo(text)])}
     return (
         <div className="todo">
