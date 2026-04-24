@@ -17,7 +17,12 @@ class Todo {
 }
 
 function TodoListApp() {
-    const [todos, setTodos] = useState([]); //할일 목록 저장 state, 기본값: 빈 리스트
+    function initTodos()
+    {
+        const savedTodos = localStorage.getItem(TODOS_STORAGE_KEY);
+        return savedTodos ? JSON.parse(savedTodos) : [];
+    }
+    const [todos, setTodos] = useState(initTodos); //할일 목록 저장 state, 기본값: 빈 리스트
     function addTodo(text) {
         setTodos((todos) => [
             //이전todos 가져오자
