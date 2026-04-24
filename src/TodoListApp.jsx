@@ -27,22 +27,33 @@ function TodoListApp() {
             new Todo(text)
         ]);
     }
+    // function addTodo(text) { setTodos((todos) => [...todos, new Todo(text)])}
     function toggleTodo(id) {
+        // todos에서 하나씩 꺼내어 todo의 id가 id와 같으면, !이전 isCompleted
         setTodos((todos) =>
             todos.map((todo) =>
                 todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
             )
-        );
+        )
     }
     function deleteTodo(id) {
-        setTodos((todos) => todos.filter((todo) => todo.id !== id));
+        // todos 하나씩 꺼내어 todo의 id가 다른 todo만 남기자
+        setTodos((todos) =>
+            todos.filter((todo) => todo.id !== id)
+        )
     }
-    // function addTodo(text) { setTodos((todos) => [...todos, new Todo(text)])}
+    function editTodo(id, newText) {
+        setTodos((todos) =>
+            todos.map((todo) =>
+                todo.id === id ? { ...todo, text: newText } : todo
+            )
+        )
+    }
     return (
         <div className="todo">
             <TodoHeader />
             <TodoAdder addTodo={addTodo} />
-            <TodoList todos={todos} />
+            <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} />
         </div>
     )
 }
