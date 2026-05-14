@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './todolist.css'
 // import TodoItemEmpty from './components/TodoItemEmpty.jsx';
 // import Button from './components/Button.jsx';
@@ -15,14 +15,23 @@ class Todo {
         this.isCompleted = false; //완료 여부: 미완
     }
 }
+const TODOS_STORAGE_KEY = "todos";
 
 function TodoListApp() {
-    function initTodos()
-    {
+    function initTodos() {
         const savedTodos = localStorage.getItem(TODOS_STORAGE_KEY);
+
         return savedTodos ? JSON.parse(savedTodos) : [];
     }
+
     const [todos, setTodos] = useState(initTodos); //할일 목록 저장 state, 기본값: 빈 리스트
+
+    //todos 변경될 때, 저장하자. useEffect(명령어, [변할값])
+    useEffect(() => {
+        //LocalStorage에 todos 저장하자
+        localStorage.setItem(TODOS_STORAGE_KEY, JSON.stringify(todos));
+    }, [todos]);
+
     function addTodo(text) {
         setTodos((todos) => [
             //이전todos 가져오자
@@ -48,6 +57,7 @@ function TodoListApp() {
         )
     }
     function editTodo(id, newText) {
+        //todos에서 하나씩 꺼내어 todo. id가 같으면 text를 newText로 대입하자
         setTodos((todos) =>
             todos.map((todo) =>
                 todo.id === id ? { ...todo, text: newText } : todo

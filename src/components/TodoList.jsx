@@ -2,7 +2,7 @@ import TodoItemEmpty from './TodoItemEmpty.jsx';
 import TodoItem from './TodoItem.jsx';
 
 
-export default function TodoList({ todos, todoggleTodo }) {
+export default function TodoList({ todos, ...rest }) {
     return (
         <ul className="todo__list">
             {/* 아무것도 없을 때, */}
